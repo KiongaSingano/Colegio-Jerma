@@ -1,73 +1,123 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 
 const cursos = [
 
-  {
-    titulo: "Ciências Físicas e Biológicas",
-    descricao:
-      "Formação científica nas áreas de física, biologia e preparação para estudos superiores."
-  },
+{
+titulo:"Ciências Físicas e Biológicas",
+descricao:
+"Formação científica nas áreas de física, biologia e preparação para estudos superiores."
+},
 
-  {
-    titulo: "Ciências Económicas e Jurídicas",
-    descricao:
-      "Curso voltado para economia, gestão, direito e conhecimentos empresariais."
-  },
+{
+titulo:"Ciências Económicas e Jurídicas",
+descricao:
+"Curso voltado para economia, gestão, direito e conhecimentos empresariais."
+},
 
-  {
-    titulo: "Electricidade",
-    descricao:
-      "Formação técnica em instalações elétricas, energia, manutenção e sistemas elétricos."
-  },
+{
+titulo:"Electricidade",
+descricao:
+"Formação técnica em instalações elétricas, energia, manutenção e sistemas elétricos."
+},
 
-  {
-    titulo: "Informática",
-    descricao:
-      "Aprendizagem de programação, redes, sistemas operativos e tecnologias digitais."
-  },
+{
+titulo:"Informática",
+descricao:
+"Aprendizagem de programação, redes, sistemas operativos e tecnologias digitais."
+},
 
-  {
-    titulo: "Desenho e Projecto",
-    descricao:
-      "Desenvolvimento de competências em desenho técnico e elaboração de projetos."
-  },
+{
+titulo:"Desenho e Projecto",
+descricao:
+"Desenvolvimento de competências em desenho técnico e elaboração de projetos."
+},
 
-  {
-    titulo: "Gestão de Recursos Humanos",
-    descricao:
-      "Preparação para gestão de pessoas, recrutamento e organização empresarial."
-  },
+{
+titulo:"Gestão de Recursos Humanos",
+descricao:
+"Preparação para gestão de pessoas, recrutamento e organização empresarial."
+},
 
-  {
-    titulo: "Finanças",
-    descricao:
-      "Estudo de gestão financeira, contabilidade e administração de recursos."
-  }
+{
+titulo:"Finanças",
+descricao:
+"Estudo de gestão financeira, contabilidade e administração de recursos."
+}
 
 ];
+
 
 
 
 export default function Courses(){
 
 
-const [inicio,setInicio] = useState(0);
+const [inicio,setInicio]=useState(0);
 
-const [direcao,setDirecao] = useState(1);
+const [direcao,setDirecao]=useState(1);
+
+const [quantidade,setQuantidade]=useState(4);
 
 
 
-const cursosVisiveis = [
 
-cursos[inicio],
-cursos[(inicio + 1) % cursos.length],
-cursos[(inicio + 2) % cursos.length],
-cursos[(inicio + 3) % cursos.length]
 
-];
+// Detectar tamanho da tela
+
+useEffect(()=>{
+
+
+function verificarTela(){
+
+
+if(window.innerWidth < 640){
+
+setQuantidade(1);
+
+}
+
+else if(window.innerWidth < 1024){
+
+setQuantidade(2);
+
+}
+
+else{
+
+setQuantidade(4);
+
+}
+
+
+}
+
+
+verificarTela();
+
+
+window.addEventListener(
+"resize",
+verificarTela
+);
+
+
+return()=>{
+
+window.removeEventListener(
+"resize",
+verificarTela
+);
+
+}
+
+
+},[]);
+
+
+
 
 
 
@@ -76,11 +126,17 @@ function avancar(){
 
 setDirecao(1);
 
+
 setInicio((prev)=>
+
 (prev + 1) % cursos.length
+
 );
 
+
 }
+
+
 
 
 
@@ -89,9 +145,13 @@ function voltar(){
 
 setDirecao(-1);
 
+
 setInicio((prev)=>
+
 (prev - 1 + cursos.length) % cursos.length
+
 );
+
 
 }
 
@@ -99,53 +159,100 @@ setInicio((prev)=>
 
 
 
+
+
+const cursosVisiveis=[];
+
+
+for(let i=0;i<quantidade;i++){
+
+
+cursosVisiveis.push(
+
+cursos[
+(inicio+i)%cursos.length
+]
+
+);
+
+
+}
+
+
+
+
+
+
+
 return(
 
+
 <section
+
 id="cursos"
+
 className="
-py-24
-px-6
+py-20
+px-4
+sm:px-6
 bg-gray-50
 overflow-hidden
 "
+
 >
 
 
+
 <div
+
 className="
 max-w-7xl
 mx-auto
 "
+
 >
+
+
 
 
 <div
+
 className="
 text-center
-mb-14
+mb-12
 "
+
 >
 
+
 <h2
+
 className="
-text-4xl
+text-3xl
+sm:text-4xl
 md:text-5xl
 font-extrabold
 text-purple-900
 "
+
 >
+
 Cursos Disponíveis
+
 </h2>
 
 
 <p
+
 className="
 mt-4
 text-gray-600
 "
+
 >
+
 Conheça as formações disponíveis no CEIPP Jerma
+
 </p>
 
 
@@ -155,27 +262,37 @@ Conheça as formações disponíveis no CEIPP Jerma
 
 
 
+
+
+
+
 <div
+
 className="
 flex
 items-center
-gap-5
+gap-3
 "
+
 >
 
 
 
-{/* Botão voltar */}
+
+
+
 
 <button
 
 onClick={voltar}
 
 className="
-hidden
-md:flex
-w-14
-h-14
+flex
+shrink-0
+w-10
+h-10
+sm:w-12
+sm:h-12
 items-center
 justify-center
 rounded-full
@@ -183,12 +300,11 @@ bg-purple-700
 text-white
 hover:bg-purple-900
 transition
-shadow-lg
 "
 
 >
 
-<ChevronLeft size={30}/>
+<ChevronLeft/>
 
 </button>
 
@@ -198,23 +314,29 @@ shadow-lg
 
 
 
-{/* Cards */}
+
 
 <div
+
 className="
 grid
 grid-cols-1
 sm:grid-cols-2
 lg:grid-cols-4
-gap-6
+gap-4
 flex-1
 "
+
 >
 
 
+
 <AnimatePresence
+
 mode="popLayout"
+
 initial={false}
+
 >
 
 
@@ -223,72 +345,104 @@ initial={false}
 cursosVisiveis.map((curso)=>(
 
 
+
 <motion.div
+
 
 key={curso.titulo}
 
-layout
+
 
 initial={{
-x: direcao === 1 ? 100 : -100,
+
+x:direcao===1?80:-80,
+
 opacity:0
+
 }}
+
+
 
 animate={{
+
 x:0,
+
 opacity:1
+
 }}
+
+
 
 exit={{
-x: direcao === 1 ? -100 : 100,
+
+x:direcao===1?-80:80,
+
 opacity:0
+
 }}
 
+
+
 transition={{
-duration:0.4
+
+duration:0.35
+
 }}
+
+
 
 className="
 bg-white
 rounded-2xl
 shadow-lg
-p-7
+p-5
 border-b-4
 border-red-600
+min-h-[250px]
 "
 
 >
 
 
-
 <div
+
 className="
-w-14
-h-14
+w-12
+h-12
 rounded-full
 bg-purple-100
 flex
 items-center
 justify-center
-mb-5
+mb-4
 "
+
 >
 
+
 <BookOpen
-size={30}
+
+size={26}
+
 className="text-purple-700"
+
 />
+
 
 </div>
 
 
 
+
 <h3
+
 className="
-text-xl
+text-lg
 font-bold
 text-purple-900
+leading-tight
 "
+
 >
 
 {curso.titulo}
@@ -297,12 +451,17 @@ text-purple-900
 
 
 
+
+
 <p
+
 className="
-mt-4
+mt-3
+text-sm
 text-gray-600
 leading-relaxed
 "
+
 >
 
 {curso.descricao}
@@ -312,6 +471,7 @@ leading-relaxed
 
 
 </motion.div>
+
 
 
 ))
@@ -324,6 +484,7 @@ leading-relaxed
 </AnimatePresence>
 
 
+
 </div>
 
 
@@ -333,17 +494,18 @@ leading-relaxed
 
 
 
-{/* Botão avançar */}
 
 <button
 
 onClick={avancar}
 
 className="
-hidden
-md:flex
-w-14
-h-14
+flex
+shrink-0
+w-10
+h-10
+sm:w-12
+sm:h-12
 items-center
 justify-center
 rounded-full
@@ -351,66 +513,19 @@ bg-purple-700
 text-white
 hover:bg-purple-900
 transition
-shadow-lg
 "
 
 >
 
-<ChevronRight size={30}/>
-
-</button>
-
-
-
-</div>
-
-
-
-
-
-
-{/* Mobile */}
-
-<div
-className="
-flex
-md:hidden
-justify-center
-gap-5
-mt-8
-"
->
-
-
-<button
-onClick={voltar}
-className="
-bg-purple-700
-text-white
-p-3
-rounded-full
-"
->
-
-<ChevronLeft/>
-
-</button>
-
-
-
-<button
-onClick={avancar}
-className="
-bg-purple-700
-text-white
-p-3
-rounded-full
-"
->
 
 <ChevronRight/>
 
+
 </button>
+
+
+
+
 
 
 </div>
