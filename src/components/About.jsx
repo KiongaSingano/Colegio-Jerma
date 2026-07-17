@@ -8,55 +8,79 @@ export default function About(){
 return(
 
 <section
+
 id="sobre"
+
 className="
-py-24
-px-6
+py-20
+px-4
+sm:px-6
 bg-white
 "
+
 >
 
 
 <div
+
 className="
 max-w-7xl
 mx-auto
 "
+
 >
+
 
 
 {/* Título */}
 
 <div
+
 className="
 text-center
-mb-16
+mb-12
 "
+
 >
 
+
 <h2
+
 className="
-text-4xl
+text-3xl
+sm:text-4xl
 md:text-5xl
 font-extrabold
 text-purple-900
 "
+
 >
+
 Sobre o CEIPP Jerma
+
 </h2>
 
 
+
 <p
+
 className="
 mt-4
-text-gray-600
 max-w-2xl
 mx-auto
+text-sm
+sm:text-base
+text-gray-600
+leading-relaxed
 "
+
 >
+
 Uma instituição comprometida com a formação académica,
 profissional e humana dos seus estudantes.
+
 </p>
+
 
 
 </div>
@@ -66,16 +90,24 @@ profissional e humana dos seus estudantes.
 
 
 
-{/* Conteúdo principal */}
+
+
+{/* Parte principal */}
+
 
 <div
+
 className="
 grid
 md:grid-cols-2
-gap-12
+gap-8
+lg:gap-12
 items-center
 "
+
 >
+
+
 
 
 
@@ -83,23 +115,34 @@ items-center
 
 <div>
 
+
 <img
+
 
 src={escola}
 
+
 alt="Colégio Jerma"
 
+
 className="
+w-full
+h-[280px]
+sm:h-[350px]
+lg:h-[420px]
+object-cover
 rounded-3xl
 shadow-xl
-w-full
-h-[400px]
-object-cover
 "
+
+
+
 
 />
 
+
 </div>
+
 
 
 
@@ -109,16 +152,20 @@ object-cover
 
 {/* Texto */}
 
+
 <div>
 
 
 <h3
+
 className="
-text-3xl
+text-2xl
+sm:text-3xl
 font-bold
 text-purple-900
-mb-6
+mb-4
 "
+
 >
 
 Educação para transformar futuros
@@ -126,26 +173,75 @@ Educação para transformar futuros
 </h3>
 
 
+
+
 <p
+
 className="
 text-gray-600
+text-sm
+sm:text-base
 leading-relaxed
 "
+
 >
+
 
 O CEIPP Jerma tem como compromisso oferecer
 uma educação de qualidade, preparando os estudantes
 com conhecimentos, competências e valores necessários
 para enfrentar os desafios do futuro.
 
+
 </p>
 
 
 
-</div>
+
+
+<div
+
+className="
+mt-6
+border-l-4
+border-red-600
+pl-4
+"
+
+>
+
+
+<p
+
+className="
+text-gray-700
+text-sm
+sm:text-base
+italic
+"
+
+>
+
+"Apostamos no ensino de qualidade para construir
+uma nova geração preparada para o futuro."
+
+</p>
 
 
 </div>
+
+
+
+
+
+</div>
+
+
+
+
+
+</div>
+
 
 
 
@@ -156,82 +252,115 @@ para enfrentar os desafios do futuro.
 
 {/* Missão Visão Valores */}
 
+
 <div
+
 className="
 grid
-md:grid-cols-3
-gap-8
-mt-20
+grid-cols-1
+sm:grid-cols-2
+lg:grid-cols-3
+gap-6
+mt-14
 "
+
 >
 
 
 
 
-{/* Missão */}
+
+
+
+
+{/* Card */}
 
 <div
+
 className="
 bg-gray-50
 rounded-2xl
-p-8
-shadow-lg
+p-6
+shadow-md
 border-t-4
 border-red-600
+hover:shadow-xl
 hover:-translate-y-2
 transition
 "
+
 >
 
 
 <div
+
 className="
-w-14
-h-14
-bg-red-100
+w-12
+h-12
 rounded-full
+bg-red-100
 flex
 items-center
 justify-center
-mb-5
+mb-4
 "
+
 >
 
+
 <Target
+
+size={26}
+
 className="text-red-600"
-size={30}
+
 />
+
 
 </div>
 
 
 
 <h3
+
 className="
-text-2xl
+text-xl
 font-bold
 text-purple-900
 "
+
 >
+
 Missão
+
 </h3>
 
 
+
 <p
+
 className="
-mt-4
+mt-3
+text-sm
+sm:text-base
 text-gray-600
+leading-relaxed
 "
+
 >
+
 
 Proporcionar uma educação de excelência,
 formando cidadãos responsáveis, preparados
 e capazes de contribuir para a sociedade.
 
+
 </p>
 
 
+
 </div>
+
 
 
 
@@ -243,66 +372,92 @@ e capazes de contribuir para a sociedade.
 {/* Visão */}
 
 <div
+
 className="
 bg-gray-50
 rounded-2xl
-p-8
-shadow-lg
+p-6
+shadow-md
 border-t-4
 border-purple-700
+hover:shadow-xl
 hover:-translate-y-2
 transition
 "
+
 >
 
 
 <div
+
 className="
-w-14
-h-14
-bg-purple-100
+w-12
+h-12
 rounded-full
+bg-purple-100
 flex
 items-center
 justify-center
-mb-5
+mb-4
 "
+
 >
 
+
 <Eye
+
+size={26}
+
 className="text-purple-700"
-size={30}
+
 />
 
+
 </div>
+
 
 
 
 <h3
+
 className="
-text-2xl
+text-xl
 font-bold
 text-purple-900
 "
+
 >
+
 Visão
+
 </h3>
 
 
+
+
 <p
+
 className="
-mt-4
+mt-3
+text-sm
+sm:text-base
 text-gray-600
+leading-relaxed
 "
+
 >
+
 
 Ser uma instituição de referência no ensino,
 inovação e desenvolvimento integral dos estudantes.
 
+
 </p>
 
 
+
 </div>
+
 
 
 
@@ -314,73 +469,104 @@ inovação e desenvolvimento integral dos estudantes.
 {/* Valores */}
 
 <div
+
 className="
 bg-gray-50
 rounded-2xl
-p-8
-shadow-lg
+p-6
+shadow-md
 border-t-4
 border-red-600
+hover:shadow-xl
 hover:-translate-y-2
 transition
 "
+
 >
 
 
 <div
+
 className="
-w-14
-h-14
-bg-red-100
+w-12
+h-12
 rounded-full
+bg-red-100
 flex
 items-center
 justify-center
-mb-5
+mb-4
 "
+
 >
 
+
 <Heart
+
+size={26}
+
 className="text-red-600"
-size={30}
+
 />
+
 
 </div>
 
 
 
+
 <h3
+
 className="
-text-2xl
+text-xl
 font-bold
 text-purple-900
 "
+
 >
+
 Valores
+
 </h3>
 
 
+
+
 <p
+
 className="
-mt-4
+mt-3
+text-sm
+sm:text-base
 text-gray-600
+leading-relaxed
 "
+
 >
+
 
 Disciplina, respeito, responsabilidade,
 excelência, inovação, ética e compromisso
 com a comunidade.
 
+
 </p>
 
 
+
+
+</div>
+
+
+
+
+
+
+
 </div>
 
 
 
-
-
-</div>
 
 
 

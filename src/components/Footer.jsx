@@ -11,7 +11,8 @@ import {
 
 export default function Footer(){
 
-return(
+
+return (
 
 <footer className="
 bg-purple-950
@@ -19,33 +20,48 @@ text-white
 py-10
 ">
 
+
 <div className="
 max-w-7xl
 mx-auto
-px-6
+px-4
+sm:px-6
+lg:px-8
+">
+
+
+<div className="
 grid
-md:grid-cols-3
+grid-cols-1
+sm:grid-cols-2
+lg:grid-cols-3
 gap-8
 ">
 
 
-{/* Nome */}
+
+{/* Informações */}
 
 <div>
 
+
 <h2 className="
 text-3xl
-font-bold
+font-extrabold
 ">
 
 CEIPP
+
 <span className="
 text-red-500
 ">
+
  Jerma
+
 </span>
 
 </h2>
+
 
 
 <p className="
@@ -55,8 +71,7 @@ leading-relaxed
 ">
 
 Sistema de Inscrições e Matrículas Online.
-Educação de qualidade para o futuro
-dos estudantes.
+Educação de qualidade para o futuro dos estudantes.
 
 </p>
 
@@ -67,9 +82,12 @@ dos estudantes.
 
 
 
+
+
 {/* Links */}
 
 <div>
+
 
 <h3 className="
 text-xl
@@ -84,25 +102,41 @@ Links rápidos
 
 
 <div className="
-space-y-2
+space-y-3
 text-gray-300
 ">
 
-<p className="hover:text-white cursor-pointer">
+
+<a 
+href="#inicio"
+className="block hover:text-white transition"
+>
 Início
-</p>
+</a>
 
-<p className="hover:text-white cursor-pointer">
+
+<a 
+href="#sobre"
+className="block hover:text-white transition"
+>
 Sobre
-</p>
+</a>
 
-<p className="hover:text-white cursor-pointer">
+
+<a 
+href="#cursos"
+className="block hover:text-white transition"
+>
 Cursos
-</p>
+</a>
 
-<p className="hover:text-white cursor-pointer">
+
+<a 
+href="#contactos"
+className="block hover:text-white transition"
+>
 Contactos
-</p>
+</a>
 
 
 </div>
@@ -121,6 +155,7 @@ Contactos
 
 <div>
 
+
 <h3 className="
 text-xl
 font-bold
@@ -131,6 +166,7 @@ mb-4
 Contactos
 
 </h3>
+
 
 
 
@@ -146,9 +182,7 @@ items-center
 gap-3
 ">
 
-<FaPhone className="
-text-red-400
-"/>
+<FaPhone className="text-red-400"/>
 
 +244 946 614 043
 
@@ -162,9 +196,7 @@ items-center
 gap-3
 ">
 
-<FaEnvelope className="
-text-red-400
-"/>
+<FaEnvelope className="text-red-400"/>
 
 ceippjerma@gmail.com
 
@@ -178,18 +210,14 @@ items-center
 gap-3
 ">
 
-<FaMapMarkerAlt className="
-text-red-400
-"/>
+<FaMapMarkerAlt className="text-red-400"/>
 
-1º de Maio, Cabinda-Angola
+1º de Maio, Cabinda - Angola
 
 </p>
 
 
-
 </div>
-
 
 
 
@@ -201,7 +229,7 @@ text-red-400
 
 <div className="
 flex
-gap-4
+gap-3
 mt-6
 ">
 
@@ -218,7 +246,8 @@ items-center
 justify-center
 hover:bg-blue-600
 transition
-">
+"
+>
 
 <FaFacebookF/>
 
@@ -238,7 +267,8 @@ items-center
 justify-center
 hover:bg-pink-600
 transition
-">
+"
+>
 
 <FaInstagram/>
 
@@ -259,7 +289,8 @@ items-center
 justify-center
 hover:bg-red-600
 transition
-">
+"
+>
 
 <FaYoutube/>
 
@@ -280,22 +311,27 @@ items-center
 justify-center
 hover:bg-green-600
 transition
-">
+"
+>
 
 <FaWhatsapp/>
 
 </a>
 
 
-</div>
-
 
 </div>
 
 
+</div>
+
+
 
 </div>
 
+
+
+</div>
 
 
 
@@ -309,11 +345,14 @@ mt-8
 pt-5
 text-center
 text-gray-400
+text-sm
 ">
 
-© {new Date().getFullYear()} Complexo Escola e Instituto Politécnico Privado Jerma. Todos os direitos reservados.
+© {new Date().getFullYear()} Complexo Escola e Instituto Politécnico Privado Jerma.
+Todos os direitos reservados.
 
 </div>
+
 
 
 </footer>
