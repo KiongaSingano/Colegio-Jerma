@@ -8,13 +8,12 @@ const [open,setOpen] = useState(false);
 
 return (
 
-<nav className="bg-blue-900 text-white fixed w-full top-0 z-50 shadow-lg">
-
+<nav className="bg-gradient-to-r from-purple-900 via-purple-700 to-red-700 text-white fixed w-full top-0 z-50 shadow-lg">
 <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
 
 
-<h1 className="text-2xl font-bold">
-Colégio Jerma
+<h1 className="text-2xl font-extrabold tracking-wide">
+🎓 Colégio Jerma
 </h1>
 
 
